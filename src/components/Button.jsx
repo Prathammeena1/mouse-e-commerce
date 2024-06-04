@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { datacontext } from "../datacontext/DataContext";
 
 const Button = ({ text, type }) => {
-  const [primaryColor, primaryColorHover] = useContext(datacontext);
+  const {primaryColor, primaryColorHover} = useContext(datacontext);
   return (
     <button
       className={

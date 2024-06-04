@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { datacontext } from '../datacontext/DataContext'
 
 const HomeRight = () => {
-  const [primaryColor] = useContext(datacontext)
+  const {primaryColor} = useContext(datacontext)
   return (
     <div className="rightHome relative h-[40vw] ">
         <div className="ml-[18vw] mt-[15vh]">

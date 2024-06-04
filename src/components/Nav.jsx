@@ -8,26 +8,6 @@ const Nav = () => {
     <div className="nav flex justify-between py-4 items-center">
       <div className="navLeft text-3xl font-bold ">Mousemania</div>
       <div className="navRight flex gap-[3vw] text-sm font-medium">
-        <NavLink
-          className={(e) =>
-            e.isActive
-              ? `text-[${primaryColor}] scale-[1.1] transition-all `
-              : ""
-          }
-          to="/"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          className={(e) =>
-            e.isActive
-              ? `text-[${primaryColor}] scale-[1.1] transition-all `
-              : ""
-          }
-          to="/products"
-        >
-          Products
-        </NavLink>
         {isAdmin ? (
           <>
             <NavLink
@@ -52,16 +32,38 @@ const Nav = () => {
             </NavLink>
           </>
         ) : (
-          <NavLink
-            className={(e) =>
-              e.isActive
-                ? `text-[${primaryColor}] scale-[1.1] transition-all `
-                : ""
-            }
-            to="/cart"
-          >
-            Cart
-          </NavLink>
+          <>
+            <NavLink
+              className={(e) =>
+                e.isActive
+                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  : ""
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className={(e) =>
+                e.isActive
+                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  : ""
+              }
+              to="/products"
+            >
+              Products
+            </NavLink>
+            <NavLink
+              className={(e) =>
+                e.isActive
+                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  : ""
+              }
+              to="/cart"
+            >
+              Cart
+            </NavLink>
+          </>
         )}
       </div>
     </div>

@@ -7,7 +7,8 @@ import { nanoid } from "nanoid";
 const DataContext = ({children}) => {
     const [primaryColor, setprimaryColor] = useState('#15adf5')
     const [primaryColorHover, setprimaryColorHover] = useState('#028acb')
-    const [isAdmin, setisAdmin] = useState(false)
+    const [isAdmin, setisAdmin] = useState(JSON.parse(localStorage.getItem('isAdmin')))
+    console.log(isAdmin)
     const [products, setproducts] = useState([
       {
         productId: nanoid(),

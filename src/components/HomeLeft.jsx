@@ -3,7 +3,7 @@ import { datacontext } from "../datacontext/DataContext";
 import Button from "./Button";
 
 const HomeLeft = () => {
-  const [primaryColor, primaryColorHover] = useContext(datacontext);
+  const [primaryColor] = useContext(datacontext);
 
   return (
     <div className="leftHome leading-none  mt-[7vw]">

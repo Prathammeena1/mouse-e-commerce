@@ -4,7 +4,7 @@ import { datacontext } from "../datacontext/DataContext";
 
 
 const Nav = () => {
-  const [primaryColor,primaryColorHover] = useContext(datacontext)
+  const [primaryColor] = useContext(datacontext)
   return (
     <div className="nav flex justify-between py-4 items-center">
       <div className="navLeft text-3xl font-bold ">Mousemania</div>

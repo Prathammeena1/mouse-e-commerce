@@ -5,7 +5,7 @@ import MainRouter from "./Routes/MainRouter";
 
 const App = () => {
   return (
-    <div className="h-screen w-full bg-zinc-900 text-zinc-200 px-[4vw] font-['montserrat'] tracking-tight overflow-hidden">
+    <div className="h-screen w-full bg-zinc-900 text-zinc-200 px-[4vw] font-['montserrat'] tracking-tight overflow-x-hidden">
       <Nav />
 
       <MainRouter/>

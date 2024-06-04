@@ -12,6 +12,7 @@ const Nav = () => {
         <NavLink className={(e)=> e.isActive ? `text-[${primaryColor}] scale-[1.1] transition-all `:"" } to='/'>Home</NavLink>
         <NavLink className={(e)=> e.isActive ? `text-[${primaryColor}] scale-[1.1] transition-all `:"" } to='/products'>Products</NavLink>
         <NavLink className={(e)=> e.isActive ? `text-[${primaryColor}] scale-[1.1] transition-all `:"" } to='/addProducts'>Add Products</NavLink>
+        <NavLink className={(e)=> e.isActive ? `text-[${primaryColor}] scale-[1.1] transition-all `:"" } to='/editProduct'>Edit Products</NavLink>
       </div>
     </div>
   );

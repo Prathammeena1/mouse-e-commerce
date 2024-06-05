@@ -3,6 +3,7 @@ import Button2 from "./Button2";
 import { datacontext } from "../datacontext/DataContext";
 import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 const AddProducts = () => {
 
@@ -35,17 +36,43 @@ const AddProducts = () => {
   const submitHandler = (e) => {
     
     e.preventDefault();
-    
-    const obj = {
-      id:nanoid(),
-      image,
-      productName,
-      productPrice,
-      productDescription
+
+    if( image && productName && productDescription && productPrice){
+      const obj = {
+        id:nanoid(),
+        image,
+        productName,
+        productPrice,
+        productDescription
+      }
+      setproducts([...products,obj])
+      localStorage.setItem('products', JSON.stringify([...products,obj]));
+      toast.success('Product Created Successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      navigate('/myProducts')  
     }
-    setproducts([...products,obj])
-    localStorage.setItem('products', JSON.stringify([...products,obj]));
-    navigate('/myProducts')    
+    else{
+      toast.error('All Inputs Are Required!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    }
+    
+      
   };
 
   return (
@@ -65,7 +92,7 @@ const AddProducts = () => {
               <span className="text-sm font-medium">No Preview</span>
             )}
           </div>
-          <input onChange={showImage} ref={fileElem} hidden type="file" />
+          <input name="image" onChange={showImage} ref={fileElem} hidden type="file" />
           <div onClick={clickFileInp} className="showPreviewImage">
             <Button2 type2="button" text="select Image" type="fill" />
           </div>
@@ -89,6 +116,7 @@ const AddProducts = () => {
             value={productPrice}
             name="price"
               type="number"
+              min = '0'
               className=" my-1 bg-transparent w-[30vw] border border-zinc-700 rounded-md px-2 py-1"
             />
           </div>

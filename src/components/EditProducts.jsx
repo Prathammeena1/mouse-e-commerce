@@ -3,18 +3,18 @@ import Button2 from "./Button2";
 import { datacontext } from "../datacontext/DataContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 const EditProducts = () => {
   const { products, setproducts } = useContext(datacontext);
   const navigate = useNavigate();
 
-  const params = useParams()
-  
-  const currentProduct = products.find(product => product.id == params.id)
-  
+  const params = useParams();
+
+  const currentProduct = products.find((product) => product.id == params.id);
 
   const fileElem = useRef(null);
-  const [image, setimage] = useState(null);
+  const [image, setimage] = useState(currentProduct.image);
   const [preview, setPreview] = useState(currentProduct.image);
   const clickFileInp = () => {
     fileElem.current.click();
@@ -32,20 +32,58 @@ const EditProducts = () => {
 
   const [productName, setproductName] = useState(currentProduct.productName);
   const [productPrice, setproductPrice] = useState(currentProduct.productPrice);
-  const [productDescription, setproductDescription] = useState(currentProduct.productDescription);
+  const [productDescription, setproductDescription] = useState(
+    currentProduct.productDescription
+  );
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const obj = {
-      id: currentProduct.id,
-      image,
-      productName,
-      productPrice,
-      productDescription,
-    };    
+    if (image && productName && productDescription && productPrice) {
+      const obj = {
+        id: currentProduct.id,
+        image,
+        productName,
+        productPrice,
+        productDescription,
+      };
+      setproducts(
+        products.map((product) =>
+          product.id === currentProduct.id ? obj : product
+        )
+      );
+      localStorage.setItem(
+        "products",
+        JSON.stringify(
+          products.map((product) =>
+            product.id === currentProduct.id ? obj : product
+          )
+        )
+      );
+      toast.success("Product Edited Successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
 
-    navigate("/myProducts");
+      navigate("/myProducts");
+    } else {
+      toast.error("All Inputs Are Required!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
 
   return (

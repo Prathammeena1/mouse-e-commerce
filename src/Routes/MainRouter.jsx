@@ -6,6 +6,7 @@ import PageNotFound from "../components/PageNotFound";
 import AddProducts from "../components/AddProducts";
 import MyProducts from "../components/MyProducts";
 import { datacontext } from "../datacontext/DataContext";
+import AreYouAdmin from "../components/AreYouAdmin";
 
 const MainRouter = () => {
   const { isAdmin } = useContext(datacontext);
@@ -20,6 +21,7 @@ const MainRouter = () => {
         <>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/areYouAdmin" element={<AreYouAdmin />} />
         </>
       )}
       <Route path="*" element={<PageNotFound />} />

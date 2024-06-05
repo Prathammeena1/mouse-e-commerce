@@ -2,8 +2,11 @@ import React, { useRef, useState } from "react";
 import Button2 from "./Button2";
 
 const AddProducts = () => {
+
+  const {products} = useContext(second)
+
   const fileElem = useRef(null);
-  const [image, setImage] = useState(null);
+  const [image, setimage] = useState(null);
   const [preview, setPreview] = useState(null);
   const clickFileInp = () => {
     fileElem.current.click();
@@ -14,17 +17,33 @@ const AddProducts = () => {
       // Create a URL for the selected file
       const previewUrl = URL.createObjectURL(file);
       // Update state
-      setImage(file);
+      setimage(`/images/${file.name}`);
       setPreview(previewUrl);
+      
     }
   };
 
+  const [productName, setproductName] = useState("");
+  const [productPrice, setproductPrice] = useState("");
+  const [productDescription, setproductDescription] = useState("");
+  
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e)
+    
+    const obj = {
+      image,
+      productName,
+      productPrice,
+      productDescription
+    }
+
+
+    
   };
 
   return (
+
+
     <div className="addProduct my-5 flex justify-center items-center">
       <form onSubmit={submitHandler} className="flex gap-[3vw] h-fit w-fit">
         <div className="addProductLeft w-[26vw]">
@@ -50,6 +69,8 @@ const AddProducts = () => {
             <span className="capitalize">Product Name</span> <br />
             <input
             name="name"
+            onChange={(e)=> setproductName(e.target.value)}
+            value={productName}
               type="text"
               className=" my-1 bg-transparent w-[30vw] border border-zinc-700 rounded-md px-2 py-1"
             />
@@ -57,6 +78,8 @@ const AddProducts = () => {
           <div>
             <span className="capitalize">Price ($)</span> <br />
             <input
+            onChange={(e)=> setproductPrice(e.target.value)}
+            value={productPrice}
             name="price"
               type="number"
               className=" my-1 bg-transparent w-[30vw] border border-zinc-700 rounded-md px-2 py-1"
@@ -64,7 +87,9 @@ const AddProducts = () => {
           </div>
           <div>
             <span className="capitalize">Description</span> <br />
-            <textarea name="description" className="my-1 bg-transparent w-[30vw] border border-zinc-700 rounded-md px-2 py-1" rows='5'></textarea>
+            <textarea onChange={(e)=> setproductDescription(e.target.value)}
+            value={productDescription}
+             name="description" className="my-1 bg-transparent w-[30vw] border border-zinc-700 rounded-md px-2 py-1" rows='5'></textarea>
           </div>
           <Button2 text='Add product'  />
           

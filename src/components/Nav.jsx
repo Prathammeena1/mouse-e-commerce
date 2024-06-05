@@ -63,6 +63,16 @@ const Nav = () => {
             >
               Cart
             </NavLink>
+            <NavLink
+              className={(e) =>
+                e.isActive
+                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  : ""
+              }
+              to="/areYouAdmin"
+            >
+              Are You Admin?
+            </NavLink>
           </>
         )}
       </div>

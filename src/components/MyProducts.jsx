@@ -4,8 +4,8 @@ import ProductCard2 from "./ProductCard2";
 import { datacontext } from "../datacontext/DataContext";
 
 const Products = () => {
-  const {products} = useContext(datacontext)
-  console.log(products)
+  const { products } = useContext(datacontext);
+  console.log(products);
   return (
     <div>
       <Heading
@@ -16,7 +16,8 @@ const Products = () => {
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard2
-              key={product.productId}
+              id={product.id}
+              key={product.id}
               image={product.image}
               productName={product.productName}
               productPrice={product.productPrice}

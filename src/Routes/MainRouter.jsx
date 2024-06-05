@@ -7,6 +7,8 @@ import AddProducts from "../components/AddProducts";
 import MyProducts from "../components/MyProducts";
 import { datacontext } from "../datacontext/DataContext";
 import AreYouAdmin from "../components/AreYouAdmin";
+import EditProducts from "../components/EditProducts";
+
 
 const MainRouter = () => {
   const { isAdmin } = useContext(datacontext);
@@ -16,6 +18,7 @@ const MainRouter = () => {
         <>
           <Route path="/addProducts" element={<AddProducts />} />
           <Route path="/myProducts" element={<MyProducts />} />
+          <Route path="/editProducts/:id" element={<EditProducts />} />
         </>
       ) : (
         <>

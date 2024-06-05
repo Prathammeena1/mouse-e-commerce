@@ -1,7 +1,9 @@
 import React from "react";
 import Button2 from "./Button2";
+import { Link } from "react-router-dom";
 
 const ProductCard2 = ({
+  id,
   image,
   productName,
   productPrice,
@@ -23,7 +25,7 @@ const ProductCard2 = ({
           {productDescription}
         </div>
         <div className="flex">
-          <Button2 text="edit" type="border" />
+          <Link to={`/editProducts/${id}`}><Button2 text="edit" type="border" /></Link>
           <Button2 text="delete" type="fill" />
         </div>
       </div>

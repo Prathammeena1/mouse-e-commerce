@@ -1,9 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Button2 from "./Button2";
+import { datacontext } from "../datacontext/DataContext";
+import { useNavigate } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 const AddProducts = () => {
 
-  const {products} = useContext(second)
+  const {products,setproducts} = useContext(datacontext)
+  const navigate = useNavigate()
 
   const fileElem = useRef(null);
   const [image, setimage] = useState(null);
@@ -19,6 +23,7 @@ const AddProducts = () => {
       // Update state
       setimage(`/images/${file.name}`);
       setPreview(previewUrl);
+
       
     }
   };
@@ -28,17 +33,19 @@ const AddProducts = () => {
   const [productDescription, setproductDescription] = useState("");
   
   const submitHandler = (e) => {
+    
     e.preventDefault();
     
     const obj = {
+      id:nanoid(),
       image,
       productName,
       productPrice,
       productDescription
     }
-
-
-    
+    setproducts([...products,obj])
+    localStorage.setItem('products', JSON.stringify([...products,obj]));
+    navigate('/myProducts')    
   };
 
   return (

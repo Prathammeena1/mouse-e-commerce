@@ -2,7 +2,7 @@ import React from "react";
 import Button2 from "./Button2";
 
 const ProductCard2 = ({
-  imageUrl,
+  image,
   productName,
   productPrice,
   productDescription,
@@ -12,7 +12,7 @@ const ProductCard2 = ({
       <div className="productImage h-[13vw] text-center">
         <img
           className="h-full object-cover text-center mx-auto"
-          src={imageUrl}
+          src={image}
           alt=""
         />
       </div>

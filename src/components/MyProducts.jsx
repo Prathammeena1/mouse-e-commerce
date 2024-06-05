@@ -17,7 +17,7 @@ const Products = () => {
           products.map((product) => (
             <ProductCard2
               key={product.productId}
-              imageUrl={product.imageUrl}
+              image={product.image}
               productName={product.productName}
               productPrice={product.productPrice}
               productDescription={product.productDescription}

@@ -12,7 +12,7 @@ const App = () => {
   
   
   return (
-    <div className="h-screen w-full bg-zinc-900 text-zinc-200 px-[4vw] font-['montserrat'] tracking-tight overflow-x-hidden">
+    <div className="h-screen w-full bg-zinc-900 text-zinc-200 px-[4vw] font-['montserrat'] tracking-tight overflow-x-hidden transition-all">
       <Nav />
       <MainRouter />
     </div>

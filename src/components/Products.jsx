@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import Heading from "./Heading";
 import ProductCard from "./ProductCard";
 import { datacontext } from "../datacontext/DataContext";
+import { Link } from "react-router-dom";
 
 const Products = () => {
-  const {products} = useContext(datacontext)
+  const { products } = useContext(datacontext);
   return (
     <div>
       <Heading
@@ -14,13 +15,15 @@ const Products = () => {
       <div className=" my-5 products flex flex-wrap gap-[2vw]">
         {products.length > 0 ? (
           products.map((product) => (
-            <ProductCard
-              key={product.id}
-              imageUrl={product.image}
-              productName={product.productName}
-              productPrice={product.productPrice}
-              productDescription={product.productDescription}
-            />
+            <Link to= {`/showProduct/${product.id}`} key={product.id}>
+              <ProductCard
+                
+                imageUrl={product.image}
+                productName={product.productName}
+                productPrice={product.productPrice}
+                productDescription={product.productDescription}
+              />
+            </Link>
           ))
         ) : (
           <h1>No Product Yet</h1>

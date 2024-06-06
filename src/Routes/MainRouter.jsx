@@ -8,6 +8,7 @@ import MyProducts from "../components/MyProducts";
 import { datacontext } from "../datacontext/DataContext";
 import AreYouAdmin from "../components/AreYouAdmin";
 import EditProducts from "../components/EditProducts";
+import ShowProduct from "../components/ShowProduct";
 
 
 const MainRouter = () => {
@@ -24,6 +25,7 @@ const MainRouter = () => {
         <>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/showProduct/:id" element={<ShowProduct />} />
           <Route path="/areYouAdmin" element={<AreYouAdmin />} />
         </>
       )}

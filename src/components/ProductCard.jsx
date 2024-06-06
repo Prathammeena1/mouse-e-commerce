@@ -9,8 +9,8 @@ const ProductCard = ({imageUrl,productName,productPrice,productDescription}) => 
             <img className="h-full object-cover text-center mx-auto" src={imageUrl} alt="" />
           </div>
           <div className="productDetails mt-[1vw] text-center">
-            <div className="productName text-xl font-bold">{productName}</div>
-            <div className="productPrice font-medium">{productPrice}</div>
+            <div className="productName text-xl font-bold capitalize">{productName}</div>
+            <div className="productPrice font-medium">$ {productPrice}</div>
             <div className="productDescription text-[.7vw] leading-none font-thin mb-[.7vw]">{productDescription}</div>
             <Button2 text='ADD TO CART' type='fill' />
           </div>

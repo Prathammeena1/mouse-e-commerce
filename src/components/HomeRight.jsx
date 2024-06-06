@@ -2,11 +2,10 @@ import React, { useContext } from 'react'
 import { datacontext } from '../datacontext/DataContext'
 
 const HomeRight = () => {
-  const {primaryColor} = useContext(datacontext)
   return (
     <div className="rightHome relative h-[40vw] ">
         <div className="ml-[18vw] mt-[15vh]">
-          <span className={`text-[${primaryColor}] rotate-[90deg] inline-block text-[12vw] font-bold pointer-events-none`}>
+          <span className={`text-primary rotate-[90deg] inline-block text-[12vw] font-bold pointer-events-none`}>
             G502
           </span>
         </div>

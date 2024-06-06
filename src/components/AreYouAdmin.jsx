@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { datacontext } from '../datacontext/DataContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import Button from './Button2'
 
 
 const AreYouAdmin = () => {
@@ -31,13 +32,15 @@ const AreYouAdmin = () => {
     <form onSubmit={submitHandler} className='flex items-center justify-center h-[90vh]'>
         <div>
         <span className="capitalize text-2xl">Enter the PIN</span> <br />
+            <div className='flex w-[50vw]'>
             <input onChange={(e)=> setpin(Number(e.target.value))} value={pin}
             name="adminPin"
             min='0'
               type="number"
-              className="adminPin my-1 mr-2 bg-transparent w-[50vw] border border-zinc-700 rounded-md px-2 py-2 text-xl"
+              className="adminPin my-1 mr-2 bg-transparent w-[600%] border border-zinc-700 rounded-md px-2 py-1 text-xl"
             />
-            <button className="my-1 bg-transparent border border-zinc-700 rounded-md px-4 py-2 text-xl">Submit</button>
+            <Button text='Submit'/>
+            </div>
         </div>
     </form>
   )

@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 
 const Products = () => {
-  const { products } = useContext(datacontext);
+  
+  const { products,isAdmin } = useContext(datacontext);
+
   return (
     <div>
       {products.length > 0 &&  <Heading

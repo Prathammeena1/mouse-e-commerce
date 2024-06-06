@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { datacontext } from "../datacontext/DataContext";
 
 const Nav = () => {
-  const { primaryColor, isAdmin } = useContext(datacontext);
+  const { isAdmin } = useContext(datacontext);
   return (
     <div className="nav flex justify-between py-4 items-center">
       <div className="navLeft text-3xl font-bold ">Mousemania</div>
@@ -13,7 +13,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/addProducts"
@@ -23,7 +23,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/myProducts"
@@ -36,7 +36,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/"
@@ -46,7 +46,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/products"
@@ -56,7 +56,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/cart"
@@ -66,7 +66,7 @@ const Nav = () => {
             <NavLink
               className={(e) =>
                 e.isActive
-                  ? `text-[${primaryColor}] scale-[1.1] transition-all `
+                  ? `text-primary scale-[1.1] transition-all `
                   : ""
               }
               to="/areYouAdmin"

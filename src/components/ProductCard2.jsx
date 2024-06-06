@@ -44,7 +44,7 @@ const ProductCard2 = ({
         <div className="productDescription text-[.7vw] leading-none font-thin mb-[.7vw]">
           {productDescription}
         </div>
-        <div className="flex">
+        <div className="flex gap-3">
           <Link to={`/editProducts/${id}`}><Button2 text="edit" type="border" /></Link>
           <span onClick={()=>deleteProduct(id)}><Button2 text="delete" type="fill" /></span>
         </div>

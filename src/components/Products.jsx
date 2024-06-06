@@ -15,15 +15,14 @@ const Products = () => {
       <div className=" my-5 products flex flex-wrap gap-[2vw]">
         {products.length > 0 ? (
           products.map((product) => (
-            <Link to= {`/showProduct/${product.id}`} key={product.id}>
               <ProductCard
-                
+              key={product.id}
+              product={product}
                 imageUrl={product.image}
                 productName={product.productName}
                 productPrice={product.productPrice}
                 productDescription={product.productDescription}
               />
-            </Link>
           ))
         ) : (
           <h1>No Product Yet</h1>

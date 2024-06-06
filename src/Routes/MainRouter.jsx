@@ -9,7 +9,7 @@ import { datacontext } from "../datacontext/DataContext";
 import AreYouAdmin from "../components/AreYouAdmin";
 import EditProducts from "../components/EditProducts";
 import ShowProduct from "../components/ShowProduct";
-
+import Cart from "../components/Cart";
 
 const MainRouter = () => {
   const { isAdmin } = useContext(datacontext);
@@ -25,6 +25,7 @@ const MainRouter = () => {
         <>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/showProduct/:id" element={<ShowProduct />} />
           <Route path="/areYouAdmin" element={<AreYouAdmin />} />
         </>

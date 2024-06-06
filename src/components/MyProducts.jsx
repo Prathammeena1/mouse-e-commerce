@@ -29,7 +29,6 @@ const Products = () => {
         ) : (
           <div className="w-full  mt-[30vh]">
           <h1 className="w-fit m-auto text-4xl text-center">No Products Yet! <br /> <Link to='/addProducts' className="text-xl text-blue-400 hover:border-b hover:border-blue-400">Add Products</Link> </h1>
-          
           </div>
         )}
       </div>

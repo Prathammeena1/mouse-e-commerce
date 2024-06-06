@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Button2 from "./Button2";
 import { Link } from "react-router-dom";
 import { datacontext } from "../datacontext/DataContext";
+import { toast } from "react-toastify";
 
 const ProductCard2 = ({
   id,
@@ -15,6 +16,16 @@ const ProductCard2 = ({
   const deleteProduct =(id)=>{
     setproducts(products.filter(product => product.id !== id))
     localStorage.setItem('products', JSON.stringify(products.filter(product => product.id !== id)))
+    toast.success('Product Deleted Successfully!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
   }
 
 

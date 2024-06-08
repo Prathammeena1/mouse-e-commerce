@@ -11,29 +11,34 @@ const CartProduct = ({
   const { cart, setcart } = useContext(datacontext);
 
   const [quantity, setquantity] = useState(product.quantity);
+  const [quantityPrice, setquantityPrice] = useState(product.quantityPrice);
+
+  console.log(cart);
 
   const decreaseQuantityHandler = () => {
     if (quantity > 1) {
       setquantity(quantity - 1);
-      const index = cart.findIndex(obj => obj.id === product.id)
-      product.quantity = quantity -1;
-      var copyCart = [...cart]
+      product.quantity = quantity - 1;
+      product.quantityPrice = productPrice * (quantity - 1);
+      setquantityPrice(productPrice * (quantity - 1));
+      const index = cart.findIndex((obj) => obj.id === product.id);
+      var copyCart = [...cart];
       copyCart[index] = product;
-      setcart([...copyCart])
+      setcart([...copyCart]);
       localStorage.setItem("cart", JSON.stringify([...copyCart]));
-
     }
   };
   const increaseQuantityHandler = () => {
     setquantity(quantity + 1);
-      const index = cart.findIndex(obj => obj.id === product.id)
-      product.quantity = quantity +1;
-      var copyCart = [...cart]
-      copyCart[index] = product;
-      setcart([...copyCart])
-      localStorage.setItem("cart", JSON.stringify([...copyCart]));
+    product.quantity = quantity + 1;
+    product.quantityPrice = productPrice * (quantity + 1);
+    setquantityPrice(productPrice * (quantity + 1));
+    const index = cart.findIndex((obj) => obj.id === product.id);
+    var copyCart = [...cart];
+    copyCart[index] = product;
+    setcart([...copyCart]);
+    localStorage.setItem("cart", JSON.stringify([...copyCart]));
   };
-  console.log(product);
   return (
     <div className="cartProduct flex w-full justify-between items-center border-b border-zinc-800 py-3 px-5">
       <div className="cartProductLeft flex items-center gap-4">
@@ -73,7 +78,7 @@ const CartProduct = ({
           </div>
         </div>
         <div className="price">
-          <span className="font-semibold">$ {productPrice}</span>
+          <span className="font-semibold">$ {quantityPrice}</span>
         </div>
       </div>
     </div>

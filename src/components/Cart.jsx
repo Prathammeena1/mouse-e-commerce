@@ -6,7 +6,6 @@ import { datacontext } from "../datacontext/DataContext";
 const Cart = () => {
   const { cart, setcart } = useContext(datacontext);
 
-  console.log(cart);
 
   return (
     <div>
@@ -21,6 +20,7 @@ const Cart = () => {
                   productName={cartProduct.productName}
                   productDescription={cartProduct.productDescription}
                   productPrice={cartProduct.productPrice}
+                  product={cartProduct}
                 />
               ))
             : " no product in cart"}

@@ -32,10 +32,10 @@ const ProductCard = ({
       setbuttonType("fill");
       localStorage.setItem("cart", JSON.stringify(filtered));
     } else {
-      setcart([...cart, {...product, quanity:1}]);
+      setcart([...cart, {...product, quantity:1}]);
       setbuttonText("remove from cart");
       setbuttonType("border");
-      localStorage.setItem("cart", JSON.stringify([...cart, {...product, quanity:1}]));
+      localStorage.setItem("cart", JSON.stringify([...cart, {...product, quantity:1}]));
       navigate('/cart')
     }
   };

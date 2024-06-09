@@ -1,13 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Heading from "./Heading";
 import ProductCard2 from "./ProductCard2";
 import { datacontext } from "../datacontext/DataContext";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import productSlice, { load } from "../store/slice/productSlice";
 
 
 const Products = () => {
-  
-  const { products,isAdmin } = useContext(datacontext);
+
+  const {products} = useSelector(state => state.productSlice)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(load())
+    },[false])
 
   return (
     <div>

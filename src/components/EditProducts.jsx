@@ -2,12 +2,15 @@ import React, { useContext, useRef, useState } from "react";
 import Button2 from "./Button2";
 import { datacontext } from "../datacontext/DataContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { editProduct } from "../store/reducers/productAction";
 
 const EditProducts = () => {
-  const { products, setproducts } = useContext(datacontext);
+
+  const {products} = useSelector(state => state.productSlice)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const params = useParams();
 
@@ -47,19 +50,7 @@ const EditProducts = () => {
         productPrice,
         productDescription,
       };
-      setproducts(
-        products.map((product) =>
-          product.id === currentProduct.id ? obj : product
-        )
-      );
-      localStorage.setItem(
-        "products",
-        JSON.stringify(
-          products.map((product) =>
-            product.id === currentProduct.id ? obj : product
-          )
-        )
-      );
+      dispatch(editProduct(obj, params.id));
       toast.success("Product Edited Successfully!", {
         position: "top-right",
         autoClose: 3000,
